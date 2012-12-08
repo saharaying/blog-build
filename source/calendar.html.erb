@@ -1,0 +1,30 @@
+---
+pageable: true
+---
+<% month = nil unless month %>
+<% day = nil unless day %>
+<% time_label = calendar_by_type page_type, year, month, day %>
+
+<% content_for :title, "#{time_label}的博客" %>
+
+<h1><%= time_label %>撰写的博客</h1>
+
+<% if paginate %>
+  <p>Page <%= page_number %> of <%= num_pages %></p>
+
+  <% if prev_page %>
+    <p><%= link_to 'Previous page', prev_page %></p>
+  <% end %>
+<% end %>
+
+<ul>
+  <% page_articles.each_with_index do |article, i| %>
+    <li><%= link_to article.title, article %> <span><%= date_display article.date %></span></li>
+  <% end %>
+</ul>
+
+<% if paginate %>
+  <% if next_page %>
+    <p><%= link_to 'Next page', next_page %></p>
+  <% end %>
+<% end %>

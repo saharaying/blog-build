@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <% title = yield_content :title %>
+    <title><%= title.present? ? title : current_page.data.title %> - Sahara</title>
+    <%= stylesheet_link_tag "all" %>
+  </head>
+  <body>
+    <header><h1><%= link_to "Je m'appelle Sahara", "/" %></h1></header>
+    <div class="container">
+      <div id="main" role="main">
+        <%= yield %>
+      </div>
+      <%= partial 'sidebar' %>
+    </div>
+  </body>
+</html>

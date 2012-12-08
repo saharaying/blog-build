@@ -1,0 +1,25 @@
+<aside>
+  <h3>最近发布</h3>
+  <ul>
+    <% blog.articles[0...10].each do |article| %>
+        <li>
+          <div class="timestamp"><%= date_display article.date %></div>
+          <a href="<%= article.url %>"><%= article.title %></a>
+        </li>
+    <% end %>
+  </ul>
+
+  <h3>标签</h3>
+  <ul>
+    <% blog.tags.each do |tag, articles| %>
+        <li><a href="<%= tag_path tag %>"><%= tag %> (<%= articles.size %>)</a></li>
+    <% end %>
+  </ul>
+
+  <h3>历史</h3>
+  <ul>
+    <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
+        <li><a href="<%= blog_year_path year %>"><%= year %> (<%= articles.size %>)</a></li>
+    <% end %>
+  </ul>
+</aside>
