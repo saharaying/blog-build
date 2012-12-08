@@ -6,6 +6,10 @@
     <% title = yield_content :title %>
     <title><%= title.present? ? title : current_page.data.title %> - Sahara</title>
     <%= stylesheet_link_tag "all" %>
+    <!--[if lt IE 9]>
+    <%= stylesheet_link_tag "ie" %>
+    <![endif]-->
+    <%= javascript_include_tag "html5" %>
   </head>
   <body>
     <header><h1><%= link_to "Je m'appelle Sahara", "/" %></h1></header>
@@ -15,5 +19,6 @@
       </div>
       <%= partial 'sidebar' %>
     </div>
+    <footer></footer>
   </body>
 </html>
