@@ -17,31 +17,36 @@
   <div id="main" role="main">
     <article class="clearfix">
       <h2>
-        <div class="timestamp"><%= date_display current_page.data.date %></div>
-        <%= current_page.data.title %>
+        <div class="timestamp"><%= date_display current_article.date %></div>
+        <%= current_article.title %>
       </h2>
       <%= yield %>
-      <div class="back"><%= link_to "<< 返回首页", "/" %></div>
-
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'saharaying'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
     </article>
   </div>
-  <%= partial 'sidebar' %>
+  <aside>
+    <div class="back"><%= link_to "<< 返回首页", "/" %></div>
+    <ul class="tags">
+      <% current_article.tags.each do |tag| %>
+        <li><%= tag_link tag, blog.tags[tag].size %></li>
+      <% end %>
+    </ul>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'saharaying'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </aside>
 </div>
+<footer></footer>
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -55,6 +60,5 @@
     })();
 
 </script>
-<footer></footer>
 </body>
 </html>

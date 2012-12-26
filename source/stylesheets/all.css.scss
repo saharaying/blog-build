@@ -17,6 +17,8 @@
 }
 .clearfix { @include clearfix(); }
 
+$mainColor: #52ABFD;
+
 body {
   margin: 0;
   font-family: "Hiragino Sans GB W3" arial;
@@ -24,12 +26,12 @@ body {
 
   a {
     text-decoration: none;
-    color: #52ABFD;
+    color: $mainColor;
   }
 }
 
 header {
-  background-color: #52ABFD;
+  background-color: $mainColor;
   a {
     color: white;
     text-decoration: none;
@@ -116,4 +118,43 @@ aside {
 footer {
   margin-top: 30px;
   margin-bottom: 60px;
+}
+
+.tags {
+  padding: 0;
+  li {
+    display: inline-block;
+    @include box-shadow(0 0 4px #999);
+    
+    & + li {
+      margin-left: 5px;
+    }
+    
+    a {
+      display: block;
+      height: 100%;
+  
+      .tag {
+        padding: 0 10px;
+      }
+      
+      .number {
+        background-color: $mainColor;
+        color: white;
+        display: inline-block;
+        padding: 0 4px;
+        position: relative;
+        
+        .convex {
+          position: absolute;
+          left: -4px;
+          top: 8px;
+          width: 8px;
+          height: 8px;
+          border-radius: 4px;
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
 }

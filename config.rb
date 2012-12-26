@@ -85,6 +85,10 @@ helpers do
   def date_display date
     calendar_by_type "day", date.year, date.month, date.day if date
   end
+  
+  def tag_link tag, number
+    link_to "<span class='tag'>#{tag}</span><span class='number'><i class='convex'></i>#{number}</span>", tag_path(tag)
+  end
 end
 
 set :css_dir, 'stylesheets'

@@ -10,9 +10,9 @@
   </ul>
 
   <h3>标签</h3>
-  <ul>
+  <ul class="tags">
     <% blog.tags.each do |tag, articles| %>
-        <li><a href="<%= tag_path tag %>"><%= tag %> (<%= articles.size %>)</a></li>
+        <li><%= tag_link tag, articles.size %></li>
     <% end %>
   </ul>
 
