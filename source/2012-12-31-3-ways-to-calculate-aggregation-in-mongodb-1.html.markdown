@@ -11,6 +11,7 @@ READMORE
 
 MongoDB的Map-Reduce可谓是功能强大，可以处理复杂的聚合逻辑。关键是map方法和reduce方法的设计。
 <pre>
+<code>:::ruby
 def map field
   &lt;&lt;-MAP
     function() {
@@ -19,9 +20,11 @@ def map field
     }
   MAP
 end
+</code>
 </pre>
 这里，我们不需要对任何域做group，所以emit的第一个参数就给了1，而第二个参数则构造了一个包含最大值、最小值、和值和计数的对象，这个对象的结构必须跟下面的reduce方法返回的对象结构一致：
 <pre>
+<code>:::ruby
 def reduce
   &lt;&lt;-REDUCE
     function(key, values) {
@@ -37,9 +40,11 @@ def reduce
     }
   REDUCE
 end
+</code>
 </pre>
 最后，我们就可以利用finalize方法根据和值和计数求得平均值：
 <pre>
+<code>:::ruby
 def finalize
   &lt;&lt;-FINALIZE
     function(key, result) {
@@ -48,6 +53,7 @@ def finalize
     }
   FINALIZE
 end
+</code>
 </pre>
 
 上面不论是reduce方法还是finalize方法，定义的js function中的第一个参数key，都是与map方法中emit的第一个参数对应的，也就是我们需要按其进行分组的域。
@@ -55,11 +61,14 @@ end
 
 如此，就可以调用MongoMapper的API了：
 <pre>
+<code>:::ruby
 def number_statistics field, condition
-  self.collection.map_reduce( map(field), reduce,
+  self.collection.map_reduce(
+    map(field), reduce,
     :out =&gt; "number_statistics_result",
     :query =&gt; condition,
     :finalize =&gt; finalize
   )
 end
+</code>
 </pre>

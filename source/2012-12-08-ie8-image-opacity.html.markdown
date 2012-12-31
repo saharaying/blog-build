@@ -12,6 +12,7 @@ tags: Tech, UI, IE
 READMORE
 
 <pre>
+<code>:::scss
     a {
       .icon {
         background: url("icon.png");
@@ -25,6 +26,7 @@ READMORE
         }
       }
     }
+</code>
 </pre>
 
 这种方式在chrome等其他浏览器上都表现完美，但在IE8上简直差劲极了，所有带弧度的地方，由于有半透明的灰度，都被渲染成了黑色：
@@ -41,6 +43,7 @@ READMORE
 所以最终的解决方案是：
 
 <pre>
+<code>:::scss
     a {
       .icon.trash {
         background: url("icon.png") 0px -326px;
@@ -51,4 +54,5 @@ READMORE
         }
       }
     }
+</code>
 </pre>
