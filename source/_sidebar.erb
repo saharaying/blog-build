@@ -1,0 +1,15 @@
+<aside>
+  <h3><i class="icon-tags"></i></h3>
+  <ul class="tags">
+    <% blog.tags.each do |tag, articles| %>
+        <li><%= labeled_link tag, articles.size, tag_path(tag) %></li>
+    <% end %>
+  </ul>
+
+  <h3><i class="icon-calendar"></i></h3>
+  <ul class="tags">
+    <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
+        <li><%= labeled_link "#{year}年", articles.size, blog_year_path(year) %></li>
+    <% end %>
+  </ul>
+</aside>
