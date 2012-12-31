@@ -12,7 +12,14 @@
   <%= javascript_include_tag "html5" %>
 </head>
 <body>
-<header><h1><%= link_to "Je m'appelle Sahara", "/" %></h1></header>
+<header>
+  <h1>
+    <%= link_to "Je m'appelle Sahara", "/" %>
+    <nav class="pull-right">
+      <%= link_to '<i class="icon-home"></i>', "/", title: "首页" %>
+    </nav>
+  </h1>
+</header>
 <div class="container">
   <div id="main" role="main">
     <article class="clearfix">
@@ -24,7 +31,6 @@
     </article>
   </div>
   <aside>
-    <div class="back"><%= link_to "<< 返回首页", "/" %></div>
     <ul class="tags">
       <% current_article.tags.each do |tag| %>
         <li><%= labeled_link tag, blog.tags[tag].size, tag_path(tag) %></li>
