@@ -27,7 +27,7 @@
     <div class="back"><%= link_to "<< 返回首页", "/" %></div>
     <ul class="tags">
       <% current_article.tags.each do |tag| %>
-        <li><%= tag_link tag, blog.tags[tag].size %></li>
+        <li><%= labeled_link tag, blog.tags[tag].size, tag_path(tag) %></li>
       <% end %>
     </ul>
     <div id="disqus_thread"></div>

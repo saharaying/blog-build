@@ -86,8 +86,8 @@ helpers do
     calendar_by_type "day", date.year, date.month, date.day if date
   end
   
-  def tag_link tag, number
-    link_to "<span class='tag'>#{tag}</span><span class='number'><i class='convex'></i>#{number}</span>", tag_path(tag)
+  def labeled_link label, number, path
+    link_to "<span class='tag'>#{label}</span><span class='number'><i class='convex'></i>#{number}</span>", path
   end
 end
 
