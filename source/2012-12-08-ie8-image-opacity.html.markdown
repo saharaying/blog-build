@@ -1,7 +1,7 @@
 ---
 title: IE8下的图片透明度
 date: 2012-12-08
-tags: UI, IE
+tags: 技术, UI, IE
 ---
 
 有这样一个需求：有一个数据表格，要求hover到一条数据上时显示可以对该条数据进行的操作，譬如删除和查看，用一个个小图标来表示。而hover到单个图标上时，图标颜色加深。如下图：
@@ -9,6 +9,7 @@ tags: UI, IE
 <img src="/2012/12/08/ie8-image-opacity/hover-icon.png" />
 
 一开始，我们的解决方式是：一个深色的png图标，默认给一个0.6的opacity（IE下是alpha），hover上去的时候将opacity置回1。
+READMORE
 
 <pre>
     a {
@@ -29,7 +30,6 @@ tags: UI, IE
 这种方式在chrome等其他浏览器上都表现完美，但在IE8上简直差劲极了，所有带弧度的地方，由于有半透明的灰度，都被渲染成了黑色：
 
 <img src="/2012/12/08/ie8-image-opacity/hover-icon-ie8.png" />
-READMORE
 
 早在IE5、6的时代，PNG图片的渲染确实是有问题的，为此，还专门有人写了一个pngfix的js库。我以为，这是同样的问题啊，于是尝试应用该库去解决，未果。
 又google了一下png图片在IE8的css fix方式，用神奇的ImageAlphaLoader也同样未果。

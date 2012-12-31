@@ -3,7 +3,6 @@
   <ul>
     <% blog.articles[0...10].each do |article| %>
         <li>
-          <div class="timestamp"><%= date_display article.date %></div>
           <a href="<%= article.url %>"><%= article.title %></a>
         </li>
     <% end %>

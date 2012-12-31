@@ -87,6 +87,7 @@ h3 {
       border-left-width: 15px;
       background-color: #FBFBFB;
       padding: 5px;
+      overflow: scroll;
     }
   }
 
@@ -122,13 +123,13 @@ footer {
 
 .tags {
   padding: 0;
+  font-size: 14px;
+
   li {
     display: inline-block;
     @include box-shadow(0 0 4px #999);
-    
-    & + li {
-      margin-left: 5px;
-    }
+    margin-right: 5px;
+    margin-bottom: 8px;
     
     a {
       display: block;
