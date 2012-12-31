@@ -1,7 +1,7 @@
 ---
 title: MongoDB中计算聚合值的三种方法（一）
 date: 2012-12-31 22:25 +08:00
-tags: 技术, MongoMapper, MongoDB
+tags: Tech, MongoMapper, MongoDB
 ---
 
 说到报表，不可避免的会涉及到计算数字域的总计、平均值、最大值和最小值。前一阵在做<a href="http://weibo.com/u/3166713675" target="_blank">@金数据</a>的过程中，对使用MongoMapper做聚合做了一点点研究。总的来说，应该是有三种方法：
