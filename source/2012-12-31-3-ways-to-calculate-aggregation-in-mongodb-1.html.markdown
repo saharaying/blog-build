@@ -68,7 +68,7 @@ def number_statistics field, condition
     :out =&gt; "number_statistics_result",
     :query =&gt; condition,
     :finalize =&gt; finalize
-  )
+  ).find.first
 end
 </code>
 </pre>
