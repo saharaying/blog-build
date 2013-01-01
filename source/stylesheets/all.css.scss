@@ -6,8 +6,32 @@
   box-shadow: $shadow;
 }
 
+// Opacity
+@mixin opacity($opacity: 1) {
+  opacity: $opacity;
+  filter: alpha(opacity=#{$opacity * 100});
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin gradient-horizontal($startColor: #555, $endColor: #333) {
+  background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+  background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient(left, $startColor, $endColor); // Le standard
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=1); // IE9 and down
+}
+
 @mixin gradient-vertical($startColor: #555, $endColor: #333) {
-  background-color: mix($startColor, $endColor, 60%);
   background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
   background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
@@ -144,9 +168,13 @@ footer {
 
   li {
     display: inline-block;
-    @include box-shadow(0 0 4px #999);
+    //@include box-shadow(0 0 4px #999);
+    border: 1px solid #DDD;
     margin-right: 5px;
     margin-bottom: 8px;
+    &:hover {
+      @include rotate(5deg);
+    }
 
     a {
       display: block;
@@ -234,11 +262,10 @@ footer {
 }
 
 #timeline {
-  height: 400px;
   overflow: hidden;
-  margin: 30px auto;
+  margin: 100px auto;
   position: relative;
-  background: url("../images/dot.gif") 3px top repeat-y;
+  background: url("../images/dot.gif") left 45px repeat-x;
 
   li {
     list-style: none;
@@ -246,64 +273,84 @@ footer {
 
   #dates {
     float: left;
-    width: 200px;
+    height: 60px;
     overflow: hidden;
     padding: 0;
     margin: 0;
 
     li {
+      float: left;
       width: 200px;
-      height: 100px;
-      line-height: 100px;
-      font-size: 24px;
-      padding-left: 10px;
-      background: url("../images/biggerdot.png") left center no-repeat;
+      height: 50px;
+      font-size: 20px;
+      text-align: center;
+      background: url("../images/biggerdot.png") center bottom no-repeat;
+      a {
+        @include opacity(0.8);
+        &:hover {
+          @include opacity(1);
+        }
+
+        &.selected {
+          font-size: 34px;
+          @include opacity(1);
+        }
+
+      }
     }
 
-    .selected {
-      font-size: 34px;
-    }
   }
 
   #issues {
-    float: left;
-    width: 600px;
+    $height: 350px;
+    height: $height;
+    overflow: hidden;
 
     li {
-      height: 400px;
-      display: table-cell;
-      vertical-align: middle;
+      float: left;
+      text-align: center;
+
+      .article-list {
+        display: table-cell;
+        vertical-align: middle;
+        width: 880px;
+        height: $height;
+      }
     }
   }
 
   #prev, #next {
     font-size: 50px;
-    line-height: 26px;
-    left: 50%;
+    top: 50%;
     position: absolute;
+    @include opacity(0.5);
+    &:hover {
+      @include opacity(1);
+    }
   }
 
   #prev {
-    top: 0;
+    left: 0;
   }
 
   #next {
-    bottom: 0;
+    right: 0;
   }
 
-  #grad_top, #grad_bottom {
+  #grad_left, #grad_right {
     position: absolute;
-    height: 80px;
-    width: 100%;
-  }
-
-  #grad_top {
+    width: 80px;
+    height: 450px;
     top: 0;
-    @include gradient-vertical(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   }
 
-  #grad_bottom {
-    bottom: 0;
-    @include gradient-vertical(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  #grad_left {
+    left: 0;
+    @include gradient-horizontal(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+
+  #grad_right {
+    right: 0;
+    @include gradient-horizontal(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
   }
 }
