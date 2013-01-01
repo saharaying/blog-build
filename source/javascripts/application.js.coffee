@@ -3,4 +3,5 @@
 
 $ ->
   if $("#timeline").length > 0
-    $().timelinr()
+    $().timelinr
+      arrowKeys: 'true'
