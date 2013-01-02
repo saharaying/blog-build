@@ -2,15 +2,14 @@
 pageable: false
 ---
 
-
 <div id="timeline" class="clearfix">
   <ul id="dates">
-    <% (1..12).to_a.reverse.each do |month| %>
+    <% available_months(year).each do |month| %>
     <li><a href="#month_<%= month %>"><%= calendar_by_type 'month', year, month %></a></li>
     <% end %>
   </ul>
   <ul id="issues">
-    <% (1..12).to_a.reverse.each do |month| %>
+    <% available_months(year).each do |month| %>
         <li id="month_<%= month %>">
           <div class="article-list">
             <% page_articles.select{|article| article.date.month == month}.each do |article| %>

@@ -98,6 +98,12 @@ helpers do
   def labeled_link label, number, path
     link_to "<span class='tag'>#{label}</span><span class='number'><i class='convex'></i>#{number}</span>", path
   end
+
+  def available_months year
+    current = Time.now
+    months = year < current.year ? 1..12 : 1..current.month
+    months.to_a.reverse
+  end
 end
 
 set :css_dir, 'stylesheets'
