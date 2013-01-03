@@ -1,0 +1,50 @@
+.highlight {
+  pre {
+    font-family: menlo;
+
+    .k, .nt, .nc, .nd {
+      color: #000080;
+      font-weight: bold;
+    }
+
+    .nf {
+      color: #0000FF;
+      font-style: italic;
+    }
+
+    .na {
+      color: #0000FF;
+      font-weight: bold;
+    }
+
+    .n {
+      color: #C37522;
+      font-style: italic;
+    }
+
+    .o, .no {
+      color: #000;
+      font-weight: bold;
+    }
+
+    .sh {
+      color: #297BDE;
+      font-weight: bold;
+    }
+
+    .ss {
+      color: #660099;
+      font-weight: bold;
+    }
+
+    .s2, .kt, .sx {
+      color: #008000;
+      font-weight: bold;
+    }
+
+    .mi, .mf {
+      color: #0000FF;
+    }
+
+  }
+}

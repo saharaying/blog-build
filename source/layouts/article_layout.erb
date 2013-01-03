@@ -1,4 +1,17 @@
 <% wrap_layout :layout do %>
+    <div class="article-nav clearfix">
+      <% if prev_article = current_article.previous_article %>
+          <% link_to prev_article, :id => 'prev' do %>
+              <i class="icon-chevron-left"></i> <%= prev_article.title %>
+          <% end %>
+      <% end %>
+
+      <% if next_article = current_article.next_article %>
+          <% link_to next_article, :class => 'pull-right', :id => 'next' do %>
+              <%= next_article.title %> <i class="icon-chevron-right"></i>
+          <% end %>
+      <% end %>
+    </div>
     <article class="clearfix">
       <h2>
         <div class="timestamp"><%= date_display current_article.date %></div>

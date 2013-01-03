@@ -49,6 +49,7 @@ def finalize
   &lt;&lt;-FINALIZE
     function(key, result) {
       result.avg = result.sum / result.count;
+      delete result.count;
       return result;
     }
   FINALIZE

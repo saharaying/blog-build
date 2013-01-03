@@ -1,6 +1,7 @@
 @import "font-awesome";
 @import "_mixins";
-
+@import "timeline";
+@import "code-highlight";
 
 $mainColor: #ea4c88;
 
@@ -162,147 +163,10 @@ footer {
   text-shadow: none;
 }
 
-.highlight {
-  pre {
-    font-family: menlo;
-
-    .k, .nt, .nc, .nd {
-      color: #000080;
-      font-weight: bold;
-    }
-
-    .nf {
-      color: #0000FF;
-      font-style: italic;
-    }
-
-    .na {
-      color: #0000FF;
-      font-weight: bold;
-    }
-
-    .n {
-      color: #C37522;
-      font-style: italic;
-    }
-
-    .o, .no {
-      color: #000;
-      font-weight: bold;
-    }
-
-    .sh {
-      color: #297BDE;
-      font-weight: bold;
-    }
-
-    .ss {
-      color: #660099;
-      font-weight: bold;
-    }
-
-    .s2, .kt, .sx {
-      color: #008000;
-      font-weight: bold;
-    }
-
-    .mi, .mf {
-      color: #0000FF;
-    }
-
-  }
+#disqus_thread {
+  margin-top: 30px;
 }
 
-#timeline {
-  overflow: hidden;
-  margin: 100px auto;
-  position: relative;
-  background: url("../images/dot.gif") left 45px repeat-x;
-
-  li {
-    list-style: none;
-  }
-
-  #dates {
-    float: left;
-    height: 60px;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-
-    li {
-      float: left;
-      width: 200px;
-      height: 50px;
-      font-size: 20px;
-      text-align: center;
-      background: url("../images/biggerdot.png") center bottom no-repeat;
-      a {
-        @include opacity(0.8);
-        &:hover {
-          @include opacity(1);
-        }
-
-        &.selected {
-          font-size: 34px;
-          @include opacity(1);
-        }
-
-      }
-    }
-
-  }
-
-  #issues {
-    $height: 350px;
-    height: $height;
-    overflow: hidden;
-
-    li {
-      float: left;
-      text-align: center;
-
-      .article-list {
-        display: table-cell;
-        vertical-align: middle;
-        width: 880px;
-        height: $height;
-      }
-    }
-  }
-
-  #prev, #next {
-    font-size: 50px;
-    top: 50%;
-    position: absolute;
-    @include opacity(0.5);
-    &:hover {
-      @include opacity(1);
-    }
-  }
-
-  #prev {
-    left: 0;
-  }
-
-  #next {
-    right: 0;
-  }
-
-  #grad_left, #grad_right {
-    position: absolute;
-    width: 80px;
-    height: 450px;
-    top: 0;
-  }
-
-  #grad_left {
-    left: 0;
-    @include gradient-horizontal(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-  }
-
-  #grad_right {
-    right: 0;
-    @include gradient-horizontal(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-  }
+.article-nav {
+  margin: 30px 0;
 }
