@@ -7,7 +7,7 @@ tags: Tech, MongoMapper, MongoDB
 在<a href="/2012/12/31/3-ways-to-calculate-aggregation-in-mongodb-1.html">上一篇博文</a>中，介绍了如何使用Map-Reduce计算聚合值。
 但我们的需求并不需要进行任何的映射，我们只要对过滤出来的结果进行计算就可以了。这样，MongoDB中的group方法就可以直接为我所用。
 
-<h3>2. 使用group</h3>
+<h4>2. 使用group</h4>
 READMORE
 
 逻辑上跟使用Map-Reduce差不多，不过reduce和finalize的参数有一些变化。
@@ -23,9 +23,11 @@ def number_statistics field, condition
 end
 </code>
 </pre>
+
 上面是group方法的参数结构。cond与Map-Reduce中的query参数一样，是查询条件；增加了initial，其值为结果初始对象。我们这里将和值和计数置为0。
 
 reduce方法的参数则为当前文档(current)和结果对象(result)；而在Map-Reduce中，第一个参数为key，第二个参数为map方法中映射到该key的所有对象。
+
 <pre>
 <code>:::ruby
 def number_reduce field
@@ -43,6 +45,7 @@ end
 </pre>
 
 finalize方法也有所不同，不需要返回值，传递的参数即为结果对象，我们只需要对其进行修改就可以了：
+
 <pre>
 <code>:::ruby
 def finalize
@@ -55,4 +58,5 @@ def finalize
 end
 </code>
 </pre>
+
 相比较上一种方法，此方法已简单许多，但是对于复杂的聚合逻辑，它也许就不如Map-Reduce能驾驭了。

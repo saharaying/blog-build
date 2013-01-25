@@ -13,14 +13,16 @@
 </head>
 <body>
 <header>
-  <h1>
-    <%= link_to "Je m'appelle Sahara", "/" %>
-    <% unless current_page.url == "/" %>
-        <nav class="pull-right">
-          <%= link_to '<i class="icon-home"></i>', "/", title: "首页" %>
-        </nav>
-    <% end %>
-  </h1>
+  <div class="container">
+    <h1>
+      <%= link_to "Je m'appelle Sahara", "/" %>
+      <% unless current_page.url == "/" %>
+          <nav class="pull-right">
+            <%= link_to '<i class="icon-home"></i>', "/", title: "首页" %>
+          </nav>
+      <% end %>
+    </h1>
+  </div>
 </header>
 <div class="container">
   <%= yield %>

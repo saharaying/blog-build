@@ -1,12 +1,12 @@
-<aside>
-  <h3><i class="icon-tags"></i> 标签</h3>
+<aside class="span4">
+  <h4><i class="icon-tags"></i> 标签</h4>
   <ul class="tags">
     <% blog.tags.each do |tag, articles| %>
         <li><%= labeled_link tag, articles.size, tag_path(tag) %></li>
     <% end %>
   </ul>
 
-  <h3><i class="icon-calendar"></i> 历史</h3>
+  <h4><i class="icon-calendar"></i> 历史</h4>
   <ul class="tags">
     <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
         <li><%= labeled_link "#{year}年", articles.size, blog_year_path(year) %></li>

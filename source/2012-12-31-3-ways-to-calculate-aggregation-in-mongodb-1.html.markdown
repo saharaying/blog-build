@@ -6,10 +6,11 @@ tags: Tech, MongoMapper, MongoDB
 
 说到报表，不可避免的会涉及到计算数字域的总计、平均值、最大值和最小值。前一阵在做<a href="http://weibo.com/u/3166713675" target="_blank">@金数据</a>的过程中，对使用MongoMapper做聚合做了一点点研究。总的来说，应该是有三种方法：
 
-<h3>1. 使用Map-Reduce</h3>
+<h4>1. 使用Map-Reduce</h4>
 READMORE
 
 MongoDB的Map-Reduce可谓是功能强大，可以处理复杂的聚合逻辑。关键是map方法和reduce方法的设计。
+
 <pre>
 <code>:::ruby
 def map field
@@ -22,7 +23,9 @@ def map field
 end
 </code>
 </pre>
+
 这里，我们不需要对任何域做group，所以emit的第一个参数就给了1，而第二个参数则构造了一个包含最大值、最小值、和值和计数的对象，这个对象的结构必须跟下面的reduce方法返回的对象结构一致：
+
 <pre>
 <code>:::ruby
 def reduce
@@ -42,7 +45,9 @@ def reduce
 end
 </code>
 </pre>
+
 最后，我们就可以利用finalize方法根据和值和计数求得平均值：
+
 <pre>
 <code>:::ruby
 def finalize
@@ -61,6 +66,7 @@ end
 例如我们要对数据的日期进行分组，那么在map方法中，emit的第一个参数就应该为this.date_field。
 
 如此，就可以调用MongoMapper的API了：
+
 <pre>
 <code>:::ruby
 def number_statistics field, condition
