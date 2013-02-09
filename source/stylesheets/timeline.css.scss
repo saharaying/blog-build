@@ -1,8 +1,9 @@
 #timeline {
   overflow: hidden;
-  margin: 100px auto;
+  margin: 50px auto;
+  padding: 50px 0;
   position: relative;
-  background: url("../images/dot.gif") left 45px repeat-x;
+  background: url("../images/dot.gif") left 95px repeat-x;
 
   li {
     list-style: none;
@@ -69,11 +70,11 @@
   }
 
   #prev {
-    left: 0;
+    left: 10px;
   }
 
   #next {
-    right: 0;
+    right: 10px;
   }
 
   #grad_left, #grad_right {
@@ -83,13 +84,15 @@
     top: 0;
   }
 
+  $non-transparent-color: hsl(hue($bgColor), saturation($bgColor), lightness($bgColor));
+  $transparent-color: hsla(hue($bgColor), saturation($bgColor), lightness($bgColor), 0);
   #grad_left {
     left: 0;
-    @include gradient-horizontal(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    @include gradient-horizontal($non-transparent-color, $transparent-color);
   }
 
   #grad_right {
     right: 0;
-    @include gradient-horizontal(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    @include gradient-horizontal($transparent-color, $non-transparent-color);
   }
 }
