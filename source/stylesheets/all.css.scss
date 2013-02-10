@@ -32,6 +32,14 @@ pre {
   @include border-radius(0);
 }
 
+.pagination ul {
+  > li:first-child, > li:last-child {
+    > a, > span {
+      @include border-radius(0);
+    }
+  }
+}
+
 header {
   a {
     color: white;
@@ -60,6 +68,7 @@ header {
     color: #EEE;
     letter-spacing: 4px;
     text-shadow: 0 0 4px #F8E3AF;
+    text-align: right;
   }
 }
 

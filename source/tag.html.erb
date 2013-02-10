@@ -7,24 +7,12 @@ per_page: 12
 <div class="block">
   <h3><i class="icon-tags"></i> <%= tagname %></h3>
 
-  <% if paginate %>
-      <p>Page <%= page_number %> of <%= num_pages %></p>
-
-      <% if prev_page %>
-          <p><%= link_to '上一页', prev_page %></p>
-      <% end %>
-  <% end %>
-
   <ul class="article-list">
     <% page_articles.each_with_index do |article, i| %>
         <li><%= link_to article.title, article %> <span><%= date_display article.date %></span></li>
     <% end %>
   </ul>
 
-  <% if paginate %>
-      <% if next_page %>
-          <p><%= link_to '下一页', next_page %></p>
-      <% end %>
-  <% end %>
-
 </div>
+
+<%= partial 'pagination', :locals => {:paginate => paginate, :prev_page => prev_page, :next_page => next_page, :page_number => page_number, :num_pages => num_pages} %>

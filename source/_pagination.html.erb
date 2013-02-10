@@ -1,0 +1,22 @@
+<% if paginate && num_pages > 1 %>
+    <div class="pagination">
+      <ul>
+        <% if prev_page %>
+            <li><%= link_to '上一页', prev_page.url %></li>
+        <% end %>
+        <% (1..num_pages).each do |page| %>
+            <% if page == page_number %>
+                <li class="active"><span><%= page %></span></li>
+            <% else %>
+                <% p = nil %>
+                <% (page...page_number).each { p = p ? p.metadata[:locals]['prev_page'] : prev_page } %>
+                <% (page_number...page).each { p = p ? p.metadata[:locals]['next_page'] : next_page } %>
+                <li><%= link_to page, p && p.url %></li>
+            <% end %>
+        <% end %>
+        <% if next_page %>
+            <li><%= link_to '下一页', next_page.url %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

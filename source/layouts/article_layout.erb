@@ -18,6 +18,16 @@
         <%= current_article.title %>
       </h3>
 
+      <!-- JiaThis Button BEGIN -->
+      <div class="jiathis_style_24x24 pull-right">
+        <a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_qzone"></a>
+        <a class="jiathis_button_tqq"></a>
+        <a class="jiathis_button_renren"></a>
+      </div>
+      <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+      <!-- JiaThis Button END -->
+
       <ul class="tags">
         <% current_article.tags.each do |tag| %>
             <li><%= labeled_link tag, blog.tags[tag].size, tag_path(tag) %></li>
