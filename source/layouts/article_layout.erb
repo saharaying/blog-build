@@ -1,3 +1,4 @@
+<% content_for :keywords, current_article.tags.join(',') %>
 <% wrap_layout :layout do %>
     <% if prev_article = current_article.previous_article %>
         <% link_to prev_article, :id => 'prev', :class => "article-nav" do %>
