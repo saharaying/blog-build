@@ -15,7 +15,7 @@ body {
   margin: 0;
   font-family: "Hiragino Sans GB W3" arial;
   color: #333;
-  background: #000000 url(/images/running.jpg) no-repeat center;
+  background: #000000 url(/images/running.jpg) no-repeat top center;
   @include background-size(100%);
   background-attachment: fixed;
 }
