@@ -1,9 +1,10 @@
 #timeline {
   overflow: hidden;
-  margin: 50px auto;
-  padding: 50px 0;
+  margin: 50px 0;
   position: relative;
-  background: url("../images/dot.gif") left 95px repeat-x;
+  background-image: url("../images/dot.gif");
+  background-position: left 45px;
+  background-repeat: repeat-x;
 
   li {
     list-style: none;
@@ -41,7 +42,7 @@
   }
 
   #issues {
-    $height: 350px;
+    $height: 220px;
     height: $height;
     width: 100%;
     overflow: hidden;
@@ -61,6 +62,7 @@
 
   #prev, #next {
     font-size: 50px;
+    line-height: 100%;
     top: 50%;
     position: absolute;
     @include opacity(0.5);
@@ -84,8 +86,8 @@
     top: 0;
   }
 
-  $non-transparent-color: hsl(hue($bgColor), saturation($bgColor), lightness($bgColor));
-  $transparent-color: hsla(hue($bgColor), saturation($bgColor), lightness($bgColor), 0);
+  $non-transparent-color: hsl(hue($blockColor), saturation($blockColor), lightness($blockColor));
+  $transparent-color: hsla(hue($blockColor), saturation($blockColor), lightness($blockColor), 0);
   #grad_left {
     left: 0;
     @include gradient-horizontal($non-transparent-color, $transparent-color);

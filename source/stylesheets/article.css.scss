@@ -1,0 +1,61 @@
+.timestamp {
+  float: right;
+  font-size: 14px;
+  color: #7B8273;
+}
+
+article {
+  margin-bottom: 30px;
+
+  img {
+    border: 1px solid #DDD;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  pre {
+    border: 1px solid #DDD;
+    border-left-width: 15px;
+    background-color: #FBFBFB;
+    padding: 5px;
+    overflow: scroll;
+  }
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-nav {
+  position: fixed;
+  top: 50%;
+  color: white;
+  text-shadow: 0 0 2px #333;
+
+  &#prev {
+    margin-left: -30px;
+  }
+
+  &#next {
+    margin-left: 950px;
+  }
+
+  &:hover {
+    color: white;
+  }
+
+  i {
+    font-size: 60px;
+    line-height: 42px;
+  }
+
+  .tooltip-inner {
+    white-space: nowrap;
+  }
+}
+
+.article-list {
+  li {
+    line-height: 180%;
+  }
+}

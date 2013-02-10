@@ -14,12 +14,15 @@
 <body>
 <header>
   <div class="container">
+    <em class="pull-right">
+      技术宅女的世界, 风那么清, 云那么淡<br/>
+      通向远方的路<br/>
+      那是归宿吗
+    </em>
+
     <h1>
-      <%= link_to "Je m'appelle Sahara", "/" %>
-      <% unless current_page.url == "/" %>
-          <nav class="pull-right">
-            <%= link_to '<i class="icon-home"></i>', "/", title: "首页" %>
-          </nav>
+      <% link_to "/" do %>
+          <span class="first-char">J</span>e m'appelle Sahara
       <% end %>
     </h1>
   </div>
