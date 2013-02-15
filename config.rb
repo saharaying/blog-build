@@ -28,6 +28,7 @@ activate :blog do |blog|
 
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
+  blog.year_template = "year.html"
 
   blog.paginate = true
   # blog.per_page = 10

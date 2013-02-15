@@ -1,4 +1,4 @@
-$blockColor: #FCFBF2;
+$blockColor: #FCFCF7;
 
 @import "bootstrap";
 @import "font-awesome";
@@ -6,6 +6,7 @@ $blockColor: #FCFBF2;
 @import "timeline";
 @import "code-highlight";
 @import "article";
+@import "about-me";
 
 h1, h2, h3, h4, h5 {
   font-weight: normal;
@@ -42,10 +43,10 @@ pre {
 
 header {
   a {
-    color: white;
+    color: $blockColor;
 
     &:hover {
-      color: white;
+      color: $blockColor;
     }
   }
   h1 {
@@ -74,7 +75,7 @@ header {
 
 aside {
   h4 {
-    color: white;
+    color: $blockColor;
     text-shadow: 0 1px 1px #333;
     border-bottom: 1px dotted white;
   }
@@ -100,7 +101,7 @@ footer {
   li {
     @include inline-block;
     border: 1px solid #7B8273;
-    background-color: white;
+    background-color: $blockColor;
     margin-right: 5px;
     margin-bottom: 8px;
     a {
@@ -113,7 +114,7 @@ footer {
 
       .number {
         background-color: #7B8273;
-        color: white;
+        color: $blockColor;
         @include inline-block;
         padding: 0 4px;
         position: relative;
@@ -141,6 +142,7 @@ footer {
   background-position: center top;
   @include box-shadow(0 0 1px #666);
   font-size: 16px;
+  @include border-radius(2px);
 
   a {
     position: relative;
