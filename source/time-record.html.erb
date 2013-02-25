@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>时间记录 - Sahara</title>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= javascript_include_tag "jquery-1.8.3.min", "jquery.cookie" %>
+</head>
+<body>
+<div class="container">
+  <% form_tag "https://jinshuju.net/f/512b43c124290a1052005645", :method => :post do %>
+      <% field_set_tag do %>
+          <%= input_tag :text, :value => "工作时间", :name => "entry[field_1]" %>
+          <%= input_tag :hidden, :name => "entry[field_3]" %>
+          <%= input_tag :hidden, :name => "entry[field_2]" %>
+      <% end %>
+      <button class="start btn btn-primary">Start</button>
+      <%= submit_tag "End", :class => 'btn btn-primary hide' %>
+  <% end %>
+</div>
+<footer></footer>
+
+<script type="text/javascript">
+    $("form button.start").click(function () {
+        $.cookie('field_3', new Date());
+        $(this).hide();
+        $('form input[type=submit]').show();
+        return false;
+    });
+
+    $("form").submit(function () {
+        $('form input[name="entry[field_3]"]').val($.cookie('field_3'));
+        var interval = new Date() - new Date($.cookie('field_3'));
+        $('form input[name="entry[field_2]"]').val(interval / 1000 / 3600);
+        $.removeCookie('field_3');
+    });
+</script>
+</body>
+</html>
