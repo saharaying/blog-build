@@ -9,17 +9,38 @@
   <title>时间记录 - Sahara</title>
   <%= stylesheet_link_tag "bootstrap" %>
   <%= javascript_include_tag "jquery-1.8.3.min", "jquery.cookie" %>
+
+  <style type="text/css">
+    body {
+        background-color: #EEE;
+    }
+
+    .container {
+        max-width: 90%;
+    }
+
+    form input[type=text],
+    form button.btn, form input[type=submit].btn {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    form input[type=text] {
+        width: 95%;
+        height: 30px;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
   <% form_tag "https://jinshuju.net/f/512b43c124290a1052005645", :method => :post do %>
-      <% field_set_tag do %>
-          <%= input_tag :text, :value => "工作时间", :name => "entry[field_1]" %>
-          <%= input_tag :hidden, :name => "entry[field_3]" %>
-          <%= input_tag :hidden, :name => "entry[field_2]" %>
-      <% end %>
-      <button class="start btn btn-primary hide">Start</button>
-      <%= submit_tag "End", :class => 'btn btn-primary hide' %>
+    <% field_set_tag do %>
+      <%= input_tag :text, :value => "工作时间", :name => "entry[field_1]" %>
+      <%= input_tag :hidden, :name => "entry[field_3]" %>
+      <%= input_tag :hidden, :name => "entry[field_2]" %>
+    <% end %>
+    <button class="start btn btn-primary btn-large btn-block hide">开始计时</button>
+    <%= submit_tag "结束计时", :class => 'btn btn-danger btn-large btn-block hide' %>
   <% end %>
 </div>
 <footer></footer>
