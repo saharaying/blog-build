@@ -18,26 +18,34 @@
           <%= input_tag :hidden, :name => "entry[field_3]" %>
           <%= input_tag :hidden, :name => "entry[field_2]" %>
       <% end %>
-      <button class="start btn btn-primary">Start</button>
+      <button class="start btn btn-primary hide">Start</button>
       <%= submit_tag "End", :class => 'btn btn-primary hide' %>
   <% end %>
 </div>
 <footer></footer>
 
 <script type="text/javascript">
-    $("form button.start").click(function () {
-        $.cookie('field_3', new Date());
-        $(this).hide();
-        $('form input[type=submit]').show();
-        return false;
+    $(function () {
+        if ($.cookie('field_3'))
+            $('form input[type=submit]').show();
+        else
+            $('form button').show();
+
+        $("form button.start").click(function () {
+            $.cookie('field_3', new Date());
+            $(this).hide();
+            $('form input[type=submit]').show();
+            return false;
+        });
+
+        $("form").submit(function () {
+            $('form input[name="entry[field_3]"]').val($.cookie('field_3'));
+            var interval = new Date() - new Date($.cookie('field_3'));
+            $('form input[name="entry[field_2]"]').val(interval / 1000 / 3600);
+            $.removeCookie('field_3');
+        });
     });
 
-    $("form").submit(function () {
-        $('form input[name="entry[field_3]"]').val($.cookie('field_3'));
-        var interval = new Date() - new Date($.cookie('field_3'));
-        $('form input[name="entry[field_2]"]').val(interval / 1000 / 3600);
-        $.removeCookie('field_3');
-    });
 </script>
 </body>
 </html>
