@@ -1,10 +1,6 @@
-<% content_for :title, "关于我" %>
+<% content_for :title, "照片集" %>
 
-<div class="row">
-  <div class="span12">
-    <ul id="image_gallery"></ul>
-  </div>
-</div>
+<ul id="image_gallery"></ul>
 
 
 <% content_for :scripts do %>
@@ -15,6 +11,7 @@
             function (data) {
                 $.each(data.items, function(i, item) {
                     var link = $("<a>").attr('href', item.link);
+                    link.attr('target', '_blank');
                     $("<img/>").attr("src", item.media.m).appendTo(link);
                     $("<span>").text(item.title).appendTo(link);
                     $("<li>").append(link).appendTo("#image_gallery");
@@ -23,7 +20,7 @@
                 $("#image_gallery img").load(function() {
                     $(this).parents('li').siblings('li:visible').andSelf().wookmark({
                         container: $("#image_gallery"),
-                        offset: 20
+                        offset: 2
                     });
                 });
             }

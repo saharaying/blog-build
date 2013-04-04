@@ -4,27 +4,8 @@ pageable: false
 
 <% content_for :title, "#{year}年" %>
 
-<div class="block">
-  <div id="timeline" class="clearfix">
-    <ul id="dates">
-      <% available_months(year).each do |month| %>
-          <li><a href="#month_<%= month %>"><%= calendar_by_type 'month', year, month %></a></li>
-      <% end %>
-    </ul>
-    <ul id="issues">
-      <% available_months(year).each do |month| %>
-          <li id="month_<%= month %>">
-            <div class="article-list">
-              <% page_articles.select { |article| article.date.month == month }.each do |article| %>
-                  <p><%= link_to article.title, article %></p>
-              <% end %>
-            </div>
-          </li>
-      <% end %>
-    </ul>
-    <div id="grad_left"></div>
-    <div id="grad_right"></div>
-    <a href="#" id="next"><i class="icon-chevron-right"></i></a>
-    <a href="#" id="prev"><i class="icon-chevron-left"></i></a>
-  </div>
-</div>
+<ul class="bmenu">
+  <% page_articles.each do |article| %>
+    <li><%= link_to article.title, article %></li>
+  <% end %>
+</ul>

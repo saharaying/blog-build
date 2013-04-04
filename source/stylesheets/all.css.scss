@@ -1,36 +1,34 @@
-$blockColor: #FCFCF7;
+$grayGreen: #9ab0b2;
 
+@import "reset";
 @import "bootstrap";
+@import "cs-text";
+@import "ca-menu";
+@import "bmenu";
 @import "font-awesome";
 @import "_mixins";
-@import "timeline";
 @import "code-highlight";
 @import "article";
-@import "about-me";
+@import "photos";
+@import "contact";
 
 h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
 body {
-  margin: 0;
-  font-family: "Hiragino Sans GB W3" arial;
+  font-family: 'Terminal Dosis', "Hiragino Sans GB W3", Arial, sans-serif;
   color: #333;
-  background: #000000 url(/images/running.jpg) no-repeat top center;
-  @include background-size(100%);
-  background-attachment: fixed;
+  background-color: rgb(211, 215, 200);
 }
 
 a {
-  color: lighten(#B16D53, 10%);
+  color: $grayGreen;
   &:hover {
-    color: #B16D53;
+    background: transparent;
     text-decoration: none;
+    color: darken($grayGreen, 20%);
   }
-}
-
-pre {
-  @include border-radius(0);
 }
 
 .pagination ul {
@@ -41,41 +39,9 @@ pre {
   }
 }
 
-header {
-  a {
-    color: $blockColor;
-
-    &:hover {
-      color: $blockColor;
-    }
-  }
-  h1 {
-    margin: 0 auto 20px;
-    padding: 30px 0;
-    text-shadow: 1px 1px 8px #333;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    .first-char {
-      font-size: 400%;
-      vertical-align: top;
-      position: relative;
-      top: 30px;
-      @include inline-block;
-      color: #E2B783;
-    }
-  }
-
-  em {
-    margin-top: 25px;
-    color: #EEE;
-    letter-spacing: 4px;
-    text-shadow: 0 0 4px #F8E3AF;
-    text-align: right;
-  }
-}
-
 aside {
   h4 {
-    color: $blockColor;
+    color: white;
     text-shadow: 0 1px 1px #333;
     border-bottom: 1px dotted white;
   }
@@ -89,8 +55,16 @@ footer {
 
 .block {
   @include box-shadow(0 0 1px #666);
-  background-color: $blockColor;
+  background-color: white;
+  border: 10px solid #f6f6f6;
+  @include border-radius(10px);
   padding: 30px;
+
+  &:hover {
+    background-color: #f6f6f6;
+    border-color: white;
+
+  }
 }
 
 .tags {
@@ -100,8 +74,8 @@ footer {
 
   li {
     @include inline-block;
-    border: 1px solid #7B8273;
-    background-color: $blockColor;
+    border: 1px solid $grayGreen;
+    background-color: white;
     margin-right: 5px;
     margin-bottom: 8px;
     a {
@@ -113,8 +87,8 @@ footer {
       }
 
       .number {
-        background-color: #7B8273;
-        color: $blockColor;
+        background-color: darken($grayGreen, 10%);
+        color: white;
         @include inline-block;
         padding: 0 4px;
         position: relative;
@@ -125,15 +99,22 @@ footer {
           top: 7px;
           @include square(8px);
           @include border-radius(4px);
-          background-color: #7B8273;
+          background-color: darken($grayGreen, 10%);
         }
       }
     }
+
+    &:hover {
+      @include scale(1.4);
+      @include transition(all 0.4s ease-in-out);
+      @include box-shadow(0 0 10px $grayGreen);
+    }
   }
+
 }
 
 .photo-paper {
-  border-color: $blockColor;
+  border-color: rgba(255, 255, 255, 0.2);
   border-width: 8px 8px 44px;
   border-style: solid;
   height: 250px;
@@ -144,22 +125,9 @@ footer {
   font-size: 16px;
   @include border-radius(2px);
 
-  a {
+  span {
     position: relative;
     top: 250px;
     line-height: 44px;
-  }
-
-  &.tech {
-    background-image: url(/images/tech.jpg);
-  }
-
-  &.life {
-    background-image: url(/images/life.jpg);
-  }
-
-  &.about-me {
-    background-image: url(http://ww4.sinaimg.cn/mw690/687c9fd1gw1dxfzvrgsq9j.jpg);
-    background-size: auto 250px;
   }
 }

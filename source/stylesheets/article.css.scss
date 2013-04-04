@@ -1,7 +1,7 @@
 .timestamp {
   float: right;
   font-size: 14px;
-  color: #7B8273;
+  color: #c2c6b7;
 }
 
 article {
@@ -14,11 +14,12 @@ article {
   }
 
   pre {
-    border: 1px solid #DDD;
+    border: 1px solid $grayGreen;
     border-left-width: 15px;
-    background-color: #FBFBFB;
+    background-color: transparent;
     padding: 5px;
     overflow: scroll;
+    text-shadow: none;
   }
 }
 
