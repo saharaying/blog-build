@@ -112,22 +112,3 @@ footer {
   }
 
 }
-
-.photo-paper {
-  border-color: rgba(255, 255, 255, 0.2);
-  border-width: 8px 8px 44px;
-  border-style: solid;
-  height: 250px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, .2);
-  background-position: center top;
-  @include box-shadow(0 0 1px #666);
-  font-size: 16px;
-  @include border-radius(2px);
-
-  span {
-    position: relative;
-    top: 250px;
-    line-height: 44px;
-  }
-}
