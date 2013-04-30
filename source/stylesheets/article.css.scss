@@ -18,8 +18,12 @@ article {
     border-left-width: 15px;
     background-color: transparent;
     padding: 5px;
-    overflow: scroll;
+    overflow: auto;
     text-shadow: none;
+  }
+
+  h4 {
+    margin-top: 30px;
   }
 }
 

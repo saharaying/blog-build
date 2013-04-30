@@ -1,6 +1,7 @@
 .ca-menu{
     padding:0;
     margin:20px auto;
+    list-style: none;
 }
 .ca-menu li{
     width: 230px;
