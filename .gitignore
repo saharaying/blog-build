@@ -15,3 +15,6 @@
 
 /.idea/
 /Gemfile.lock
+/**/.DS_Store
+/.cache/
+/source/.DS_Store

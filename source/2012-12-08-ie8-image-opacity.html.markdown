@@ -9,7 +9,6 @@ tags: Tech, UI, IE
 <img src="/2012/12/08/ie8-image-opacity/hover-icon.png" />
 
 一开始，我们的解决方式是：一个深色的png图标，默认给一个0.6的opacity（IE下是alpha），hover上去的时候将opacity置回1。
-READMORE
 
 <pre>
 <code>:::scss

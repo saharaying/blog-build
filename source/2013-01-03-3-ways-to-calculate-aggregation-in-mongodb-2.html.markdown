@@ -8,7 +8,6 @@ tags: Tech, MongoMapper, MongoDB
 但我们的需求并不需要进行任何的映射，我们只要对过滤出来的结果进行计算就可以了。这样，MongoDB中的group方法就可以直接为我所用。
 
 <h4>2. 使用group</h4>
-READMORE
 
 逻辑上跟使用Map-Reduce差不多，不过reduce和finalize的参数有一些变化。
 <pre>

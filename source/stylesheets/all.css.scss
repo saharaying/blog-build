@@ -1,51 +1,37 @@
-$grayGreen: #9ab0b2;
+$mainColor: #ff769f;
 
-@import "reset";
-@import "bootstrap";
-@import "cs-text";
-@import "ca-menu";
-@import "bmenu";
-@import "font-awesome";
+@import "font-awesome.min.css";
 @import "_mixins";
-@import "code-highlight";
-@import "article";
-@import "photos";
-@import "contact";
+@import "_code-highlight";
+@import "_article";
+@import "_photos";
+@import "_contact";
 
-h1, h2, h3, h4, h5 {
-  font-weight: normal;
+body { padding-top: 70px; }
+
+.navbar-default {
+  background-color: $mainColor;
+  border-bottom: none;
+  .navbar-brand, .navbar-brand:hover, .navbar-nav>li>a, .navbar-nav>li>a:hover, .navbar-nav>li>a:focus {
+    color: #ffffff;
+  }
+
+  .navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+    color: $mainColor;
+    background-color: #ffffff;
+  }
+
+  .navbar-toggle, .navbar-toggle:hover, .navbar-toggle:focus {
+    background-color: lighten($mainColor, 25%);
+  }
 }
-
-body {
-  font-family: 'Terminal Dosis', "Hiragino Sans GB W3", Arial, sans-serif;
-  color: #333;
-  background-color: rgb(211, 215, 200);
-}
-
 a {
-  color: $grayGreen;
+  color: $mainColor;
   &:hover {
     background: transparent;
     text-decoration: none;
-    color: darken($grayGreen, 20%);
+    color: darken($mainColor, 20%);
   }
-}
-
-.pagination ul {
-  > li:first-child, > li:last-child {
-    > a, > span {
-      @include border-radius(0);
-    }
-  }
-}
-
-aside {
-  h4 {
-    color: white;
-    text-shadow: 0 1px 1px #333;
-    border-bottom: 1px dotted white;
-  }
-
 }
 
 footer {
@@ -53,28 +39,27 @@ footer {
   margin-bottom: 60px;
 }
 
-.block {
-  @include box-shadow(0 0 1px #666);
-  background-color: white;
-  border: 10px solid #f6f6f6;
-  @include border-radius(10px);
-  padding: 30px;
+.badge {
+  background-color: $mainColor;
+}
 
-  &:hover {
-    background-color: #f6f6f6;
-    border-color: white;
-
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+  background-color: $mainColor;
+  border-color: $mainColor;
+  .badge {
+    color: $mainColor;
   }
 }
 
 .tags {
   margin-left: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   list-style: none;
+  padding: 0;
 
   li {
     @include inline-block;
-    border: 1px solid $grayGreen;
+    border: 1px solid $mainColor;
     background-color: white;
     margin-right: 5px;
     margin-bottom: 8px;
@@ -87,7 +72,7 @@ footer {
       }
 
       .number {
-        background-color: darken($grayGreen, 10%);
+        background-color: $mainColor;
         color: white;
         @include inline-block;
         padding: 0 4px;
@@ -99,16 +84,33 @@ footer {
           top: 7px;
           @include square(8px);
           @include border-radius(4px);
-          background-color: darken($grayGreen, 10%);
+          background-color: $mainColor;
         }
       }
     }
 
     &:hover {
-      @include scale(1.4);
-      @include transition(all 0.4s ease-in-out);
-      @include box-shadow(0 0 10px $grayGreen);
+      @include scale(1.1);
+      @include transition(all 0.2s ease-in-out);
+      @include box-shadow(0 0 10px $mainColor);
     }
   }
 
+}
+
+.loading {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.pagination > .active {
+  > a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
+    background-color: $mainColor;
+    border-color: $mainColor;
+  }
+}
+
+.pagination>li>a, .pagination>li>span, .pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+  color: $mainColor;
 }

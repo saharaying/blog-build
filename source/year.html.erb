@@ -3,9 +3,12 @@ pageable: false
 ---
 
 <% content_for :title, "#{year}年" %>
-
-<ul class="bmenu">
-  <% page_articles.each do |article| %>
-    <li><%= link_to article.title, article %></li>
+<p>
+  <% link_to tag_path('tech') do %>
+      <i class="fa fa-angle-double-left"></i> 返回
   <% end %>
-</ul>
+</p>
+
+<% page_articles.each do |article| %>
+    <p><%= link_to article.title, article %></p>
+<% end %>

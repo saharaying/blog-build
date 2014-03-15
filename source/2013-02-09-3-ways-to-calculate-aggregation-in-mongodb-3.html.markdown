@@ -7,7 +7,6 @@ tags: Tech, MongoMapper, MongoDB
 其实，MongoDB已经提供了求最大最小平均值和和值的方法，所以连reduce都可以免了，我们可以直接使用aggregation框架，这就是第三种方法。
 
 <h4>3. 使用aggregation框架</h4>
-READMORE
 
 MongoDB文档中<a href="http://docs.mongodb.org/manual/reference/aggregation/">aggregation这一节</a>对这个框架的使用有详细的说明。结合我们的例子，可以这样使用：
 

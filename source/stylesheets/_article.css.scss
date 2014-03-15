@@ -6,6 +6,7 @@
 
 article {
   margin-bottom: 30px;
+  padding: 0 40px;
 
   img {
     border: 1px solid #DDD;
@@ -14,7 +15,7 @@ article {
   }
 
   pre {
-    border: 1px solid $grayGreen;
+    border: 1px solid $mainColor;
     border-left-width: 15px;
     background-color: transparent;
     padding: 5px;
@@ -27,6 +28,10 @@ article {
   }
 }
 
+article + article {
+  border-top: 1px dashed #ccc;
+}
+
 #disqus_thread {
   margin-top: 30px;
 }
@@ -34,20 +39,20 @@ article {
 .article-nav {
   position: fixed;
   top: 50%;
-  margin-top: -30px;
   color: white;
   text-shadow: 0 0 2px #333;
 
   &#prev {
-    margin-left: -25px;
+    left: 15px;
   }
 
   &#next {
-    margin-left: 945px;
+    right: 15px;
   }
 
   &:hover {
     color: white;
+    text-decoration: none;
   }
 
   i {

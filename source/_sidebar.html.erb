@@ -1,15 +1,19 @@
-<aside class="span4">
-  <h4><i class="icon-tags"></i> 标签</h4>
-  <ul class="tags">
-    <% blog.tags.reject{|tag| tag == tagname }.each do |tag, articles| %>
-        <li><%= labeled_link tag, articles.size, tag_path(tag) %></li>
+<aside class="col-md-2">
+  <div class="list-group">
+    <% blog.tags.reject { |tag| tag == 'Tech' }.each do |tag, articles| %>
+        <a class="list-group-item <%= 'active' if tag == tagname %>" href="<%= tag_path(tag) %>">
+          <span class="badge"><%= articles.size %></span>
+          <%= tag %>
+        </a>
     <% end %>
-  </ul>
+  </div>
 
-  <h4><i class="icon-calendar"></i> 历史</h4>
-  <ul class="tags">
-    <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-        <li><%= labeled_link "#{year}年", articles.size, blog_year_path(year) %></li>
-    <% end %>
-  </ul>
+  <!--<div class="list-group">-->
+    <!--<% blog.articles.group_by { |a| a.date.year }.each do |year, articles| %>-->
+        <!--<a class="list-group-item" href="<%= blog_year_path(year) %>">-->
+          <!--<span class="badge"><%= articles.size %></span>-->
+          <!--<%= "#{year}年" %>-->
+        <!--</a>-->
+    <!--<% end %>-->
+  <!--</div>-->
 </aside>

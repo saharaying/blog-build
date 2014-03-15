@@ -1,5 +1,7 @@
 require 'rack/codehighlighter'
 require "pygments"
+require 'lib/custom_helpers'
+
 use Rack::Codehighlighter,
     :pygments,
     :element => "pre>code",
@@ -20,7 +22,7 @@ activate :blog do |blog|
   # blog.taglink = "tags/:tag.html"
   blog.layout = "article_layout"
   # blog.summary_separator = /(READMORE)/
-  # blog.summary_length = 250
+  blog.summary_length = 250
   # blog.year_link = ":year.html"
   # blog.month_link = ":year/:month.html"
   # blog.day_link = ":year/:month/:day.html"
@@ -33,6 +35,13 @@ activate :blog do |blog|
   blog.paginate = true
   # blog.per_page = 10
   # blog.page_link = "page/:num"
+end
+
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.remote = "blog"
+  deploy.branch = "master"
+  deploy.build_before = true # default: false
 end
 
 page "/feed.xml", :layout => false
@@ -81,32 +90,7 @@ page "/time-record.html", :layout => false
 # activate :automatic_image_sizes
 
 # Methods defined in the helpers block are available in templates
-helpers do
-  def calendar_by_type type, year, month=nil, day=nil
-    case type
-      when "day"
-        return Date.new(year, month, day).strftime('%Y年%m月%d日')
-      when "month"
-        return Date.new(year, month, 1).strftime('%Y年%m月')
-      when "year"
-        "#{year}年"
-    end
-  end
-
-  def date_display date
-    calendar_by_type "day", date.year, date.month, date.day if date
-  end
-  
-  def labeled_link label, number, path
-    link_to "<span class='tag'>#{label}</span><span class='number'><i class='convex'></i>#{number}</span>", path
-  end
-
-  def available_months year
-    current = Time.now
-    months = year < current.year ? 1..12 : 1..current.month
-    months.to_a.reverse
-  end
-end
+helpers CustomHelpers
 
 set :css_dir, 'stylesheets'
 

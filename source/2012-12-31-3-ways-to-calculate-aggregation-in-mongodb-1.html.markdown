@@ -7,7 +7,6 @@ tags: Tech, MongoMapper, MongoDB
 说到报表，不可避免的会涉及到计算数字域的总计、平均值、最大值和最小值。前一阵在做<a href="http://weibo.com/u/3166713675" target="_blank">@金数据</a>的过程中，对使用MongoMapper做聚合做了一点点研究。总的来说，应该是有三种方法：
 
 <h4>1. 使用Map-Reduce</h4>
-READMORE
 
 MongoDB的Map-Reduce可谓是功能强大，可以处理复杂的聚合逻辑。关键是map方法和reduce方法的设计。
 

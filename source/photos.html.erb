@@ -1,6 +1,8 @@
 <% content_for :title, "照片集" %>
 
-<ul id="image_gallery"></ul>
+<ul id="image_gallery">
+  <li class="loading">加载中...</li>
+</ul>
 
 
 <% content_for :scripts do %>
@@ -9,6 +11,7 @@
             "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
             {id: '34499786@N04', format: 'json'},
             function (data) {
+                $("#image_gallery").empty();
                 $.each(data.items, function(i, item) {
                     var link = $("<a>").attr('href', item.link);
                     link.attr('target', '_blank');
