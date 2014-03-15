@@ -40,7 +40,6 @@ end
 activate :deploy do |deploy|
   deploy.method = :git
   deploy.remote = "blog"
-  deploy.branch = "master"
   deploy.build_before = true # default: false
 end
 
