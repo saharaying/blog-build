@@ -114,3 +114,14 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
 .pagination>li>a, .pagination>li>span, .pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
   color: $mainColor;
 }
+
+h2 .fa-anchor {
+  font-size: 100px;
+  color: $mainColor;
+  margin: 80px 0;
+
+  &:hover {
+    @include rotate(-30deg);
+    @include transition(all 0.4s ease-in-out);
+  }
+}

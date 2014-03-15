@@ -36,35 +36,6 @@ article + article {
   margin-top: 30px;
 }
 
-.article-nav {
-  position: fixed;
-  top: 50%;
-  color: white;
-  text-shadow: 0 0 2px #333;
-
-  &#prev {
-    left: 15px;
-  }
-
-  &#next {
-    right: 15px;
-  }
-
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-
-  i {
-    font-size: 60px;
-    line-height: 42px;
-  }
-
-  .tooltip-inner {
-    white-space: nowrap;
-  }
-}
-
 .article-list {
   li {
     line-height: 180%;

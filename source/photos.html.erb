@@ -18,7 +18,7 @@
                     $("<img/>").attr("src", item.media.m).appendTo(link);
                     $("<span>").text(item.title).appendTo(link);
                     $("<li>").append(link).appendTo("#image_gallery");
-                    if ( i == 20 ) return false;
+                    if ( i == 30 ) return false;
                 });
                 $("#image_gallery img").load(function() {
                     $(this).parents('li').siblings('li:visible').andSelf().wookmark({

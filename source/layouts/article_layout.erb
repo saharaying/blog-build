@@ -1,17 +1,5 @@
 <% content_for :keywords, current_article.tags.join(',') %>
 <% wrap_layout :layout do %>
-    <% if prev_article = current_article.previous_article %>
-        <% link_to prev_article, :id => 'prev', :class => "article-nav" do %>
-            <i class="fa fa-caret-left" title="<%= prev_article.title %>" data-toggle="tooltip" data-placement="right"></i>
-        <% end %>
-    <% end %>
-
-    <% if next_article = current_article.next_article %>
-        <% link_to next_article, :class => 'article-nav', :id => 'next' do %>
-            <i class="fa fa-caret-right" title="<%= next_article.title %>"  data-toggle="tooltip" data-placement="left"></i>
-        <% end %>
-    <% end %>
-
     <article class="clearfix">
       <h3>
         <div class="timestamp"><%= date_display current_article.date %></div>
