@@ -39,7 +39,7 @@ end
 
 activate :deploy do |deploy|
   deploy.method = :git
-  deploy.remote = "blog"
+  deploy.remote = "git@github.com:saharaying/saharaying.github.com.git"
   deploy.branch = "master"
   deploy.build_before = true # default: false
 end
