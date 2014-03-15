@@ -4,16 +4,21 @@ per_page: 10
 ---
 <% content_for :title, tagname %>
 
+<% tech_articles = active_menu?('tech') %>
 <div class="row">
-  <div class="col-md-10">
+  <div class="<%= tech_articles ? 'col-md-10' : 'col-md-12' %>">
     <% page_articles.each_with_index do |article, i| %>
         <article class="clearfix">
           <h4>
             <div class="timestamp"><%= date_display article.date %></div>
-            <%= link_to article.title, article %>
+            <% if tech_articles %>
+                <%= link_to article.title, article %>
+            <% else %>
+                <%= article.title %>
+            <% end %>
           </h4>
           <p><%= article.summary %></p>
-          <% if tech_article? article %>
+          <% if tech_articles %>
             <div class="pull-right"><%= link_to "继续阅读 >>", article %></div>
           <% end %>
         </article>
@@ -21,5 +26,5 @@ per_page: 10
 
     <%= partial 'pagination', :locals => {:paginate => paginate, :prev_page => prev_page, :next_page => next_page, :page_number => page_number, :num_pages => num_pages} %>
   </div>
-  <%= partial 'sidebar', :locals => {:tagname => tagname} %>
+  <%= partial 'sidebar', :locals => {:tagname => tagname} if tech_articles %>
 </div>
